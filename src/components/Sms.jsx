@@ -6,7 +6,7 @@ const Sms = () => {
     <div>
       <h3 className={customStyle.title}>Sms Logs</h3>
 
-      <div className="w-full  flex items-center justify-center bg-red-200 overflow-auto p-6">
+      <div className="w-full  flex items-center justify-center overflow-auto p-6">
         <p>No logs to show.</p>
       </div>
     </div>
