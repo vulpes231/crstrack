@@ -4,9 +4,11 @@ import { logo } from "../assets";
 
 const Logo = () => {
   return (
-    <div className="relative">
-      <img src={logo} alt="" className="absolute top-0 w-[30px]" />
-      <h3>cellphone remote access</h3>
+    <div className="flex items-center gap-2">
+      <img src={logo} alt="" className="w-[30px] " />
+      <h3 className="z-10 uppercase font-bold text-lg whitespace-nowrap md:text-xl">
+        cellphone <span className="text-cyan-500">remote</span> access
+      </h3>
     </div>
   );
 };
