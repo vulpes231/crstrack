@@ -10,6 +10,15 @@ import { BsTwitterX } from "react-icons/bs";
 import { MdHome, MdLogout, MdSms } from "react-icons/md";
 import { IoCallSharp } from "react-icons/io5";
 import { Mail, Fbchat, Instachat, Sms, Snap, Xchat } from "../components";
+import {
+  fbb,
+  gmail,
+  insta,
+  snapchat,
+  text,
+  twitter,
+  whatsapp,
+} from "../assets";
 
 const navLinks = [
   {
@@ -59,7 +68,7 @@ const Dash = () => {
   }, []);
 
   return (
-    <section className="h-screen w-full flex overflow-hidden">
+    <section className="h-screen w-full flex flex-col md:flex-row  overflow-hidden bg-slate-100">
       <aside className="hidden md:flex md:w-[320px] lg:w-[280px] flex-col max-h-screen bg-black text-slate-100">
         <h3 className="p-4 text-black bg-white">Communication logs</h3>
         <hr />
@@ -106,7 +115,7 @@ const Dash = () => {
           </li>
         </ul>
       </aside>
-      <div className="bg-slate-100 w-full">
+      <div className="bg-slate-100 w-full p-6">
         {active === "dashboard" ? (
           <div className="">
             <p>
@@ -128,37 +137,36 @@ const Dash = () => {
           <Mail />
         ) : null}
       </div>
-      <aside className="sm:hidden absolute bottom-0 bg-black text-white w-full">
-        <ul className=" grid grid-cols-2 w-full">
+      <aside className="sm:hidden w-full absolute bottom-0 mb-1">
+        <h3 className="p-2 bg-black text-white font-bold">My Apps</h3>
+        <ul className=" grid grid-cols-3 w-full gap-4 border border-slate-300">
           {navLinks.map((link) => {
             const icons =
               link.id === "twitter" ? (
-                <BsTwitterX />
+                <img src={twitter} alt="" className="w-[40px]" />
               ) : link.id === "facebook" ? (
-                <FaFacebookMessenger />
+                <img src={fbb} alt="" className="w-[40px]" />
               ) : link.id === "instagram" ? (
-                <FaInstagramSquare />
+                <img src={insta} alt="" className="w-[40px]" />
               ) : link.id === "sms" ? (
-                <MdSms />
+                <img src={text} alt="" className="w-[40px]" />
               ) : link.id === "snap" ? (
-                <FaSnapchatGhost />
+                <img src={snapchat} alt="" className="w-[40px]" />
               ) : link.id === "call" ? (
-                <IoCallSharp />
+                <img src={gmail} alt="" className="w-[40px]" />
               ) : (
-                <MdHome />
+                <img src={whatsapp} alt="" className="w-[40px]" />
               );
             return (
               <li
                 key={link.id}
                 onClick={() => setActive(link.id)}
                 className={`${
-                  active === link.id
-                    ? "bg-white text-black border-slate-800"
-                    : ""
-                } flex items-center gap-2 border py-2 px-4 cursor-pointer hover:text-cyan-500 text-xs`}
+                  active === link.id ? "bg-slate-300 " : ""
+                } flex border border-slate-300 items-center justify-center cursor-pointer hover:text-cyan-500 text-xs w-full p-3`}
               >
                 <span>{icons}</span>
-                <span>{link.name.split(" ")[0]}</span>
+                {/* <span>{link.name.split(" ")[0]}</span> */}
               </li>
             );
           })}
@@ -167,10 +175,9 @@ const Dash = () => {
               localStorage.removeItem("user");
               navigate("/");
             }}
-            className="flex items-center gap-2 border-b p-2 cursor-pointer py-2 px-4 text-xs"
+            className="flex items-center gap-2 p-3 cursor-pointer py-2 px-4 text-xs border justify-center"
           >
-            <MdLogout />
-            <span>Logout</span>
+            <MdLogout className="text-[40px]" />
           </li>
         </ul>
       </aside>

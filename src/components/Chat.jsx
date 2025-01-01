@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 
 const messages = [
@@ -43,11 +44,11 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen max-w-lg mx-auto bg-white rounded-lg shadow-md">
+    <div className="flex flex-col max-w-lg mx-auto bg-white rounded-lg shadow-md h-[400px]">
       <div className="bg-yellow-500 text-white p-4 rounded-t-lg text-center">
         <h2 className="text-xl font-semibold">Snapchat</h2>
       </div>
-      <div className="flex-1 overflow-y-auto p-4 bg-gray-50 mb-16">
+      <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
         {messages.map((message, index) => (
           <div
             key={index}
